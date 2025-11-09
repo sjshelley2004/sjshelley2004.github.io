@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== Meta & Title ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stefanie Shelley | Creative Designer & Digital Marketer</title>
+  <meta name="description" content="Stefanie Shelley — Virtual Assistant, Graphic Designer & Social Media Manager. Workflow automation, brand identity, and digital marketing." />
+  <meta name="theme-color" content="#111827" />
+
+  <!-- ===== Tailwind & Fonts ===== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ===== Visual Styles ===== -->
+  <style>
+    :root{
+      --color-primary-bg: #111827;
+      --color-secondary-bg: #1F2937;
+      --color-text-light: #F3F4F6;
+      --color-text-dark: #A3A3A3;
+      --color-accent: #6366F1;
+      --color-accent-2: #864a8f;
+    }
+
+    html { scroll-behavior: smooth; }
+    body{
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-primary-bg);
+      color: var(--color-text-light);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height: 100vh;
+    }
+
+    /* Headings: Montserrat */
+    h1,h2,h3{ font-family:'Montserrat', sans-serif; }
+
+    .gradient-text{
+      background-image: linear-gradient(to right, #818cf8, #e879f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .content-card{
+      background-color: var(--color-secondary-bg);
+      padding: 1.75rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .content-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(99,102,241,0.2), 0 0 15px rgba(99,102,241,0.3);
+    }
+
+    .section-title{ 
+      position: relative; 
+      padding-bottom: .5rem; 
+      margin-bottom: 1.25rem; 
+      color: var(--color-text-light); 
+    }
+    .section-title::after{
+      content:''; 
+      position:absolute; 
+      left:0; 
+      bottom:0; 
+      width:80px; 
+      height:3px; 
+      background-color: var(--color-accent); 
+      border-radius:9999px; 
+      box-shadow:0 0 8px #6366F1;
+    }
+
+    .metric-highlight{ 
+      font-size: 2.25rem; 
+      font-weight: 800; 
+      color: var(--color-accent); 
+      text-shadow: 0 0 10px rgba(99,102,241,0.6); 
+    }
+
+    .card-hover{ 
+      transition: transform .3s ease, box-shadow .3s ease; 
+    }
+    .card-hover:hover{ 
+      transform: translateY(-4px); 
+      box-shadow: 0 10px 15px rgba(236,72,153,0.25); 
+    }
+
+    /* Small theme adjustments for Tailwind classes used */
+    .text-gray-300{ color:#E5E7EB; }
+    .text-gray-400{ color:#D1D5DB; }
+    .text-gray-500{ color:var(--color-text-dark); }
+    .text-gray-900,.text-gray-800{ color:var(--color-text-light); }
+
+    a{ color:var(--color-accent); }
+    a:hover{ color:#C7D2FE; }
+
+    .llm-button{
+      padding: .5rem 1rem;
+      background-color: #4F46E5;
+      color:#fff;
+      border-radius:9999px;
+      font-weight:600;
+      transition: all .2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .llm-button:hover{ 
+      background-color:#4338CA; 
+      box-shadow:0 4px 10px rgba(99,102,241,0.5); 
+    }
+
+    .no-scrollbar::-webkit-scrollbar{ display:none; }
+    .no-scrollbar{ -ms-overflow-style:none; scrollbar-width:none; }
+
+    /* Accessibility focus styles */
+    :focus{ outline: 2px dashed rgba(99,102,241,0.3); outline-offset: 2px; }
+
+    /* Modal minor polish */
+    #geminiContentModal .prose-invert a{ color: #C7D2FE; }
+
+    /* New styles for enhanced design */
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(168,85,247,0.15) 100%);
+    }
+    
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes pulse-glow {
+      from { box-shadow: 0 0 5px rgba(99,102,241,0.5); }
+      to { box-shadow: 0 0 15px rgba(99,102,241,0.8); }
+    }
+    
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid var(--color-accent);
+      white-space: nowrap;
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--color-accent); }
+    }
+    
+    .skill-bar {
+      height: 6px;
+      border-radius: 3px;
+      background-color: #374151;
+      overflow: hidden;
+    }
+    
+    .skill-progress {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(to right, #6366F1, #E879F9);
+      transition: width 1s ease-in-out;
+    }
+    
+    .testimonial-card {
+      background: linear-gradient(145deg, #1F2937, #111827);
+      border: 1px solid rgba(99,102,241,0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ===== Header (semantic + accessible) ===== -->
+  <header class="bg-black/80 sticky top-0 z-50 shadow-lg backdrop-blur-sm" role="banner">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <h1 class="text-xl md:text-2xl font-bold tracking-wider gradient-text m-0">SJ. SHELLEY — DIGITAL CATALYST</h1>
+      </div>
+
+      <nav class="flex items-center gap-4" aria-label="Primary Navigation">
+        <a class="text-gray-300 hover:text-indigo-400 font-medium transition-colors" href="#services">Services</a>
+        <a class="text-gray-300 hover:text-indigo-400 font-medium transition-colors hidden sm:inline" href="#projects">Projects</a>
+        <a class="text-gray-300 hover:text-indigo-400 font-medium transition-colors hidden sm:inline" href="#credentials">Expertise</a>
+
+        <!-- GitHub link with SVG icon (opens in new tab) -->
+        <a class="flex items-center gap-2 text-gray-300 hover:text-indigo-400 font-medium transition-colors hidden md:inline" href="https://github.com/sjshelley2004" target="_blank" rel="noopener noreferrer" aria-label="Stefanie's GitHub (opens in a new tab)">
+          <svg height="20" viewBox="0 0 16 16" width="20" fill="currentColor" aria-hidden="true" focusable="false" class="text-gray-300">
+            <path fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38
+                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                 -.01-.53.63-.01 1.08.58 1.23.82.72 1.2 1.87.86 2.33.66.07-.52.28-.86.51-1.06-1.78-.2-3.64-.89
+                 -3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2
+                 -.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+                 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013
+                 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+          <span class="sr-only">GitHub</span>
+          <span class="hidden md:inline">GitHub</span>
+        </a>
+
+        <a class="px-4 py-2 bg-fuchsia-600 text-white rounded-lg hover:bg-fuchsia-500 font-semibold shadow-md transition-colors" href="#contact">Inquire Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main role="main">
+
+    <!-- ===== Hero Section ===== -->
+    <section class="relative w-full min-h-screen bg-cover bg-center flex flex-col justify-center items-center text-white px-6 md:px-20 hero-gradient"
+             style="background-image: url('./banner.png');" aria-label="Hero">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" aria-hidden="true"></div>
+
+      <div class="relative z-10 max-w-4xl w-full space-y-8">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg m-0 mb-4">
+            TIME SAVED. <span class="gradient-text">BRAND ELEVATED.</span> GROWTH DELIVERED.
+          </h2>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            I transform complex challenges into streamlined solutions through creative design, automation, and strategic marketing.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl mb-3">⚙️</div>
+            <h3 class="text-xl font-semibold mb-2">Workflow Automation</h3>
+            <p class="text-gray-300">Streamlined processes that save time and reduce errors</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl mb-3">🎨</div>
+            <h3 class="text-xl font-semibold mb-2">Brand Identity</h3>
+            <p class="text-gray-300">Visual designs that communicate your unique value</p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-lg text-center">
+            <div class="text-3xl mb-3">📈</div>
+            <h3 class="text-xl font-semibold mb-2">Digital Marketing</h3>
+            <p class="text-gray-300">Strategies that drive growth and engagement</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <a href="#contact" class="px-8 py-3 bg-fuchsia-600 text-white font-bold rounded-lg shadow-lg hover:bg-fuchsia-500 transition-colors transform hover:scale-105">
+            Start Your Project
+          </a>
+          <a href="#projects" class="px-8 py-3 border border-white/30 text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
+            View My Work
+          </a>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-8 mt-8 text-lg">
+          <p class="flex items-center gap-2">
+            <span aria-hidden="true">📧</span>
+            <a href="mailto:stefanieshelley18@gmail.com" class="hover:text-pink-300 transition">stefanieshelley18@gmail.com</a>
+          </p>
+          <p class="flex items-center gap-2">
+            <span aria-hidden="true">🔗</span>
+            <a href="https://www.facebook.com/ShelleyB.Stefanie" target="_blank" rel="noopener noreferrer" class="hover:text-pink-300 transition">Shelley B. Stefanie</a>
+          </p>
+        </div>
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="flex flex-col items-center text-gray-300">
+          <span class="text-sm mb-2">Scroll to explore</span>
+          <div class="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
+            <div class="w-1 h-3 bg-gray-300 rounded-full mt-2 floating-animation"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services Section ===== -->
+    <section id="services" class="py-20 max-w-7xl mx-auto px-6" aria-labelledby="services-heading">
+      <div class="text-center mb-16">
+        <h2 id="services-heading" class="text-4xl font-extrabold mb-6 text-fuchsia-400 uppercase tracking-widest">Core Services & Results</h2>
+        <p class="text-center text-lg text-gray-300 font-light max-w-3xl mx-auto">I translate strategy into measurable results. Each service is backed by achievement metrics.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Service 1 -->
+        <article class="card-hover bg-gray-900 p-6 rounded-xl shadow-2xl flex flex-col items-center text-center border border-gray-800 hover:border-fuchsia-500" aria-labelledby="svc-1">
+          <div class="w-20 h-20 rounded-full bg-fuchsia-900/30 flex items-center justify-center mb-4 pulse-glow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9M12 4h9M4 8h16M4 16h16"/>
+            </svg>
+          </div>
+          <h3 id="svc-1" class="text-xl font-semibold text-white mb-2">Creative Design & Branding</h3>
+          <p class="text-gray-300 font-light mb-4">Logos, social kits, pitch decks, and brand guidelines that create cohesive visual identities.</p>
+          <span class="mt-auto px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">+200 SKU Adoption</span>
+        </article>
+
+        <!-- Service 2 -->
+        <article class="card-hover bg-gray-900 p-6 rounded-xl shadow-2xl flex flex-col items-center text-center border border-gray-800 hover:border-fuchsia-500" aria-labelledby="svc-2">
+          <div class="w-20 h-20 rounded-full bg-fuchsia-900/30 flex items-center justify-center mb-4 pulse-glow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-4m-2 2h4m-10-6h12a2 2 0 012 2v4a2 2 0 01-2 2H3a2 2 0 01-2-2v-4a2 2 0 012-2zM12 3v4m-2 2h4"/>
+            </svg>
+          </div>
+          <h3 id="svc-2" class="text-xl font-semibold text-white mb-2">AI Workflow Automation</h3>
+          <p class="text-gray-300 font-light mb-4">Custom GPTs, Zapier/Make integrations, and automated systems that streamline operations.</p>
+          <span class="mt-auto px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">25% Reduction in Overhead</span>
+        </article>
+
+        <!-- Service 3 -->
+        <article class="card-hover bg-gray-900 p-6 rounded-xl shadow-2xl flex flex-col items-center text-center border border-gray-800 hover:border-fuchsia-500" aria-labelledby="svc-3">
+          <div class="w-20 h-20 rounded-full bg-fuchsia-900/30 flex items-center justify-center mb-4 pulse-glow">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6"/>
+            </svg>
+          </div>
+          <h3 id="svc-3" class="text-xl font-semibold text-white mb-2">Executive System Design</h3>
+          <p class="text-gray-300 font-light mb-4">Strategic virtual assistance, systems implementation, and operational scaling for growth.</p>
+          <span class="mt-auto px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">95% Client Retention</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Quantified Impact ===== -->
+    <section class="max-w-7xl mx-auto px-6 py-16" aria-label="Quantified impact">
+      <div class="text-center mb-12">
+        <h2 class="section-title text-3xl font-bold text-center">Quantified Impact</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Measurable results that demonstrate the value I bring to every project</p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 text-center rounded-lg bg-indigo-900/30 border border-indigo-700 hover:border-indigo-500 transition-colors">
+          <p class="metric-highlight">40%</p>
+          <p class="text-sm text-gray-300">Buyer engagement increase (Marketplace)</p>
+        </div>
+        <div class="p-6 text-center rounded-lg bg-indigo-900/30 border border-indigo-700 hover:border-indigo-500 transition-colors">
+          <p class="metric-highlight">50%</p>
+          <p class="text-sm text-gray-300">Project setup time reduction (Automation)</p>
+        </div>
+        <div class="p-6 text-center rounded-lg bg-indigo-900/30 border border-indigo-700 hover:border-indigo-500 transition-colors">
+          <p class="metric-highlight">25%</p>
+          <p class="text-sm text-gray-300">Conversion rate boost (Localized copy)</p>
+        </div>
+        <div class="p-6 text-center rounded-lg bg-indigo-900/30 border border-indigo-700 hover:border-indigo-500 transition-colors">
+          <p class="metric-highlight">95%</p>
+          <p class="text-sm text-gray-300">Client retention rate (Long-term partnerships)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects Section ===== -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-16" aria-labelledby="projects-heading">
+      <div class="text-center mb-12">
+        <h2 id="projects-heading" class="section-title text-3xl font-bold text-center">Project Highlights & Visual Proof</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Select case studies showing visual design and system implementation results.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <article class="content-card p-0 overflow-hidden card-hover group" aria-labelledby="proj-1">
+          <div class="overflow-hidden">
+            <img src="https://placehold.co/600x300/6366F1/FFFFFF?text=Brand+Identity+Proof" alt="Visual proof of e-commerce brand identity" class="w-full h-40 object-cover border-b-4 border-indigo-500 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4">
+            <h3 id="proj-1" class="text-xl font-semibold mb-1 text-white">E-commerce Brand Identity</h3>
+            <p class="text-sm text-indigo-300 mb-3">Logo, color system, and packaging assets.</p>
+            <p class="text-gray-400 text-sm">System adopted across 200+ SKUs, guaranteeing consistent market presence and reducing design revisions by 30%.</p>
+            <span class="mt-4 inline-block px-4 py-1 text-xs bg-indigo-500/20 text-indigo-300 rounded-full font-medium">Design System</span>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="content-card p-0 overflow-hidden card-hover group" aria-labelledby="proj-2">
+          <div class="overflow-hidden">
+            <img src="https://placehold.co/600x300/E879F9/1F2937?text=Template+Visuals+Proof" alt="Visual proof of educational template system" class="w-full h-40 object-cover border-b-4 border-fuchsia-400 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4">
+            <h3 id="proj-2" class="text-xl font-semibold mb-1 text-white">DepEd Educational Template System</h3>
+            <p class="text-sm text-fuchsia-300 mb-3">Modular design templates for faster content creation.</p>
+            <p class="text-gray-400 text-sm">Created 20+ templates, streamlining educational resource prep time by 35% for teachers and administrators.</p>
+            <span class="mt-4 inline-block px-4 py-1 text-xs bg-fuchsia-500/20 text-fuchsia-300 rounded-full font-medium">Workflow Automation</span>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="content-card p-0 overflow-hidden card-hover group" aria-labelledby="proj-3">
+          <div class="overflow-hidden">
+            <img src="https://placehold.co/600x300/4B5563/FFFFFF?text=Marketplace+Optimized+Screenshot" alt="Visual proof of optimized marketplace listing" class="w-full h-40 object-cover border-b-4 border-gray-500 group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-4">
+            <h3 id="proj-3" class="text-xl font-semibold mb-1 text-white">Marketplace Listing Optimization</h3>
+            <p class="text-sm text-gray-300 mb-3">Redesigned visual assets and copywriting for product listings.</p>
+            <p class="text-gray-400 text-sm">Increased buyer engagement by 40% and resulted in a 25% boost in conversion rates through localized copy.</p>
+            <span class="mt-4 inline-block px-4 py-1 text-xs bg-gray-500/20 text-gray-300 rounded-full font-medium">Digital Marketing</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Credentials Section ===== -->
+    <section id="credentials" class="py-20 max-w-7xl mx-auto px-6 bg-gray-900 rounded-xl shadow-inner border border-gray-800" aria-labelledby="credentials-heading">
+      <div class="text-center mb-16">
+        <h2 id="credentials-heading" class="text-4xl font-extrabold mb-6 text-indigo-400 uppercase tracking-widest">Expertise & Credentials</h2>
+        <p class="text-center text-lg text-gray-300 font-light max-w-3xl mx-auto">My training ensures every project is executed with precision, foresight, and creative mastery.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+        <article class="card-hover bg-gray-950 p-6 rounded-xl shadow-lg flex flex-col items-center text-center border border-gray-700 hover:border-indigo-500" aria-labelledby="cred-1">
+          <div class="w-20 h-20 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3 id="cred-1" class="text-xl font-semibold text-white mb-2">Adobe Certified Professional</h3>
+          <p class="text-gray-300 font-light mb-4">Expert command of industry-leading design software.</p>
+          <span class="mt-auto px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">Professional Branding Assets</span>
+        </article>
+
+        <article class="card-hover bg-gray-950 p-6 rounded-xl shadow-lg flex flex-col items-center text-center border border-gray-700 hover:border-indigo-500" aria-labelledby="cred-2">
+          <div class="w-20 h-20 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 12h2M17 12h2M5 17h2M17 17h2M5 7h2M17 7h2M12 5v14M4 12h16"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 9l-3 3-3-3m0 6l3-3 3 3"/>
+            </svg>
+          </div>
+          <h3 id="cred-2" class="text-xl font-semibold text-white mb-2">Certified Prompt Engineer (LLM)</h3>
+          <p id="promptEngineerDesc" class="text-gray-300 font-light mb-4">Mastery in constructing optimal prompts for strategic, high-quality content.</p>
+
+          <button type="button"
+                  onclick="showCredentialExplanation('Certified Prompt Engineer (LLM)', document.getElementById('promptEngineerDesc').textContent, this)"
+                  class="mt-auto llm-button"
+                  aria-haspopup="dialog">
+            Understand My Value ✨
+          </button>
+
+          <span class="mt-4 inline-block px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">Data-Driven Content Strategy</span>
+        </article>
+
+        <article class="card-hover bg-gray-950 p-6 rounded-xl shadow-lg flex flex-col items-center text-center border border-gray-700 hover:border-indigo-500" aria-labelledby="cred-3">
+          <div class="w-20 h-20 rounded-full bg-indigo-900/30 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6"/>
+            </svg>
+          </div>
+          <h3 id="cred-3" class="text-xl font-semibold text-white mb-2">Systems Implementation Specialist</h3>
+          <p class="text-gray-300 font-light mb-4">Expertise in project management and organizational system building.</p>
+          <span class="mt-auto px-6 py-1.5 bg-fuchsia-600 text-white text-sm rounded-full font-semibold shadow-md">Efficient Project Delivery</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Experience Section ===== -->
+    <section class="max-w-7xl mx-auto px-6 py-16" aria-labelledby="experience-heading">
+      <div class="text-center mb-12">
+        <h2 id="experience-heading" class="section-title text-3xl font-bold text-center">Professional Experience</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">A track record of delivering measurable results across diverse projects and industries</p>
+      </div>
+
+      <div class="content-card mb-6 border-l-4 border-indigo-600 hover:border-indigo-500 transition-colors">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-xl font-bold text-white m-0">Remote Virtual Assistant / Creative Designer</h3>
+          <span class="text-sm font-medium text-gray-400 bg-indigo-900/30 px-3 py-1 rounded-full">July 2023 – Present</span>
+        </div>
+        <p class="text-indigo-300 mb-4 m-0">JC Premiere Business International Inc. & Freelance Clients</p>
+        <ul class="space-y-2 text-gray-300 list-disc list-inside ml-4">
+          <li>Designed and optimized Facebook Marketplace listings, increasing buyer engagement by <strong class="text-indigo-300">40%</strong>.</li>
+          <li>Automated Excel-based documentation systems, reducing project setup time by <strong class="text-indigo-300">50%</strong>.</li>
+          <li>Localized Taglish/English product descriptions, boosting conversions by <strong class="text-indigo-300">25%</strong>.</li>
+          <li>Delivered UI/UX prototypes and packaging documentation for client projects.</li>
+        </ul>
+      </div>
+
+      <div class="content-card border-l-4 border-indigo-600 hover:border-indigo-500 transition-colors">
+        <div class="flex justify-between items-start mb-2">
+          <h3 class="text-xl font-bold text-white m-0">Freelance Digital Marketing Specialist</h3>
+          <span class="text-sm font-medium text-gray-400 bg-indigo-900/30 px-3 py-1 rounded-full">May 2022 – January 2025</span>
+        </div>
+        <p class="text-indigo-300 mb-4 m-0">Various Clients</p>
+        <ul class="space-y-2 text-gray-300 list-disc list-inside ml-4">
+          <li>Managed ad campaigns across Facebook and Google; average ROI improvements of <strong class="text-indigo-300">20%</strong>.</li>
+          <li>Designed brand identity packages for startups (logos, social kits, pitch decks).</li>
+          <li>Drove a <strong class="text-indigo-300">35%</strong> increase in client conversions through marketplace listing redesign.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials Section ===== -->
+    <section class="max-w-7xl mx-auto px-6 py-16" aria-labelledby="testimonials-heading">
+      <div class="text-center mb-12">
+        <h2 id="testimonials-heading" class="section-title text-3xl font-bold text-center">Client Testimonials</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-4">What clients say about working with me</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="testimonial-card p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold mr-4">JC</div>
+            <div>
+              <h4 class="font-bold text-white">JC Premiere Business</h4>
+              <p class="text-sm text-gray-400">E-commerce Client</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"Stefanie transformed our marketplace listings with her design skills. Our engagement increased by 40% and conversions jumped 25%."</p>
+        </div>
+
+        <div class="testimonial-card p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-fuchsia-600 flex items-center justify-center text-white font-bold mr-4">ED</div>
+            <div>
+              <h4 class="font-bold text-white">Educational Institution</h4>
+              <p class="text-sm text-gray-400">DepEd Partner</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"The template system Stefanie created saved our teachers hours each week. Her workflow automation expertise is exceptional."</p>
+        </div>
+
+        <div class="testimonial-card p-6 rounded-xl">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold mr-4">SM</div>
+            <div>
+              <h4 class="font-bold text-white">Startup Founder</h4>
+              <p class="text-sm text-gray-400">Tech Industry</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic">"Working with Stefanie was transformative. Her brand identity work gave us the professional edge we needed to secure funding."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact Section ===== -->
+    <section id="contact" class="py-20 max-w-xl mx-auto px-6" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-4xl font-extrabold text-center mb-10 text-fuchsia-400 uppercase tracking-widest">Let's Transform Your Business</h2>
+
+      <p class="text-center text-gray-300 font-light mb-8">
+        Use the <strong class="text-indigo-400">AI Scope Optimizer</strong> to refine your idea into a professional project brief before sending. I'll get back to you within 24 hours.
+      </p>
+
+      <form id="contactForm" onsubmit="alert('Thank you for your inquiry! Your optimized request has been sent.'); return false;" class="space-y-6 bg-gray-900 p-8 rounded-xl border border-gray-700 shadow-2xl" aria-label="Contact form">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-500 transition" placeholder="Your Name" />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-500 transition" placeholder="your@email.com" />
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Project Scope / Needs</label>
+          <textarea id="message" name="message" rows="5" required class="no-scrollbar w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-500 transition" placeholder="Tell me about your AI automation needs, branding project, or virtual assistance requirements."></textarea>
+        </div>
+
+        <button type="button" id="optimizeButton" class="w-full py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-500 transition transform hover:scale-[1.01] flex items-center justify-center" aria-live="polite">
+          <span class="text-2xl mr-2 leading-none">✨</span> Optimize Scope
+        </button>
+
+        <p class="text-center text-sm text-gray-500 font-light">Your request will be transformed into a professional brief before sending.</p>
+
+        <button type="submit" class="w-full py-3 bg-fuchsia-600 text-white font-bold rounded-lg shadow-lg hover:bg-fuchsia-500 transition transform hover:scale-[1.01]">Send Optimized Request</button>
+
+        <p class="text-center text-gray-500 text-sm pt-4">Or email directly: <a href="mailto:stefanieshelley18@gmail.com" class="text-indigo-400 hover:text-indigo-300">stefanieshelley18@gmail.com</a></p>
+      </form>
+
+      <!-- transient custom alert -->
+      <div id="customAlertModal" class="fixed top-0 left-0 right-0 p-4 text-center bg-fuchsia-600 text-white font-semibold z-50 rounded-b-lg shadow-xl transition-opacity duration-300 hidden" role="status" aria-live="polite">
+        <span id="customAlertMessage"></span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-black/90 py-10 border-t border-gray-700/50" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 text-center text-gray-400 text-sm space-y-4">
+      <p>&copy; 2025 Stefanie Jane B. Shelley — The Digital Catalyst. All Rights Reserved.</p>
+      <p class="font-bold text-gray-300">📞 +63 992 843 5228 | 📧 <a href="mailto:stefanieshelley18@gmail.com" class="text-indigo-400 hover:text-indigo-300">stefanieshelley18@gmail.com</a></p>
+
+      <div class="flex items-center justify-center gap-6">
+        <a href="https://linkedin.com/in/stefanie-jane-b-shelley" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-400 transition-colors">LinkedIn</a>
+        <a href="#projects" class="hover:text-indigo-400 transition-colors">Portfolio</a>
+        <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
+
+        <!-- GitHub link in footer too -->
+        <a href="https://github.com/sjshelley2004" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-indigo-400 transition-colors">
+          <svg height="18" viewBox="0 0 16 16" width="18" fill="currentColor" aria-hidden="true" focusable="false">
+            <path fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38
+                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52
+                 -.01-.53.63-.01 1.08.58 1.23.82.72 1.2 1.87.86 2.33.66.07-.52.28-.86.51-1.06-1.78-.2-3.64-.89
+                 -3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2
+                 -.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+                 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013
+                 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+          <span class="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Modals (hidden by default) ===== -->
+  <div id="geminiContentModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[60] hidden flex items-center justify-center p-4" onclick="this.classList.add('hidden');" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="bg-gray-900 p-8 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-100 transition-all duration-300" onclick="event.stopPropagation();">
+      <div class="flex justify-between items-start mb-4 border-b border-indigo-700 pb-3">
+        <h3 id="modalTitle" class="text-2xl font-bold gradient-text"></h3>
+        <button onclick="document.getElementById('geminiContentModal').classList.add('hidden');" class="text-gray-400 hover:text-white transition" aria-label="Close dialog">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+
+      <div id="modalContent" class="prose prose-invert max-w-none text-gray-200 space-y-4">
+        <!-- LLM generated content will be placed here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    /* =========================
+       Utility & Global Helpers
+       ========================= */
+
+    // Custom transient alert (replaces window.alert)
+    window.alert = function(message) {
+      const modal = document.getElementById('customAlertModal');
+      const modalMessage = document.getElementById('customAlertMessage');
+      modalMessage.textContent = message;
+      modal.classList.remove('hidden');
+      modal.style.opacity = '1';
+      setTimeout(() => {
+        modal.style.opacity = '0';
+        setTimeout(() => modal.classList.add('hidden'), 300);
+      }, 2500);
+    };
+
+    // Sleep helper for exponential backoff
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+    /* =========================
+       Gemini API wrapper
+       NOTE: apiKey intentionally left blank.
+       Replace apiKey with your key if you integrate.
+       ========================= */
+    const apiKey = ""; // <-- add your key here if integrating
+    const apiUrlBase = "https://generativelanguage.googleapis.com/v1beta/models";
+    const geminiModel = "gemini-2.5-flash-preview-09-2025";
+    const apiUrl = apiKey ? `${apiUrlBase}/${geminiModel}:generateContent?key=${apiKey}` : null;
+
+    async function fetchGeminiContent(userQuery, systemPrompt, maxRetries = 3) {
+      if (!apiUrl) {
+        throw new Error("API key missing. Set 'apiKey' in the script to call Gemini.");
+      }
+
+      let delay = 1000;
+      for (let attempt = 0; attempt < maxRetries; attempt++) {
+        try {
+          const payload = {
+            contents: [{ parts: [{ text: userQuery }] }],
+            systemInstruction: { parts: [{ text: systemPrompt }] }
+          };
+
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.status === 429 && attempt < maxRetries - 1) {
+            await sleep(delay);
+            delay *= 2;
+            continue;
+          }
+
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+          const result = await response.json();
+          const resultText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+          if (resultText) return resultText;
+          throw new Error("API response content missing.");
+        } catch (e) {
+          console.error(`Attempt ${attempt + 1} failed:`, e);
+          if (attempt < maxRetries - 1) {
+            await sleep(delay);
+            delay *= 2;
+          } else {
+            throw new Error('Gemini API request failed after multiple attempts.');
+          }
+        }
+      }
+      return null;
+    }
+
+    /* =========================
+       AI Scope Optimizer
+       Transforms informal message into structured brief
+       ========================= */
+    async function optimizeScope() {
+      const messageTextarea = document.getElementById('message');
+      const optimizeButton = document.getElementById('optimizeButton');
+      const originalText = (messageTextarea.value || '').trim();
+
+      if (originalText.length < 50) {
+        alert('Please enter a more detailed description (at least 50 characters) to optimize the scope.');
+        return;
+      }
+
+      // Loading state
+      optimizeButton.disabled = true;
+      optimizeButton.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Optimizing...';
+
+      const systemPrompt = `You are an expert Project Strategist for a Creative Designer and Virtual Assistant named Stefanie Shelley. Your task is to take an informal, free-form project request and transform it into a structured, professional, and detailed project brief in clean Markdown format.
+
+Structure your output exactly as follows:
+
+## Optimized Project Brief
+
+---
+
+### 1. Project Goal
+(A single, concise sentence defining the primary outcome the client seeks.)
+
+### 2. Key Deliverables
+(A bulleted list of 3-5 specific, measurable outputs, focusing on design, marketing, or automation.)
+
+### 3. Target Audience
+(Describe the ideal customer or market segment this project targets.)
+
+### 4. Success Criteria & Metrics
+(What defines success? Mention expected, quantifiable outcomes, e.g., '20% conversion boost', '30% time reduction', 'Improved brand consistency'.)
+
+### 5. Estimated Timeline & Resources
+(Suggest a general timeframe and required resources/access.)
+
+---
+
+The user's original request is provided below. Do not comment on the original request; only output the structured brief.`;
+
+      try {
+        const resultText = await fetchGeminiContent(originalText, systemPrompt);
+
+        if (resultText) {
+          messageTextarea.value = resultText;
+          messageTextarea.style.height = 'auto';
+          messageTextarea.style.height = messageTextarea.scrollHeight + 'px';
+          alert('Scope optimized successfully! Review and send the detailed brief.');
+        } else {
+          alert('Optimization failed: Received no text response.');
+        }
+      } catch (e) {
+        alert('Error optimizing scope: ' + e.message);
+      } finally {
+        optimizeButton.disabled = false;
+        optimizeButton.innerHTML = '<span class="text-2xl mr-2 leading-none">✨</span> Optimize Scope';
+      }
+    }
+
+    /* =========================
+       Credential Value Prop Generator
+       Uses Gemini to create 3 benefit bullets
+       ========================= */
+    async function showCredentialExplanation(title, description, buttonElem) {
+      const modal = document.getElementById('geminiContentModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalContent = document.getElementById('modalContent');
+
+      modalTitle.textContent = `Value Proposition for ${title}`;
+      modalContent.innerHTML = '<div class="flex items-center justify-center py-10 text-indigo-400"><svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="text-lg font-medium">Generating Client Benefits...</span></div>';
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden','false');
+
+      if (buttonElem) {
+        buttonElem.disabled = true;
+        buttonElem.innerHTML = 'Loading...';
+      }
+
+      const userQuery = `Credential Title: ${title}. Credential Description: ${description}.`;
+      const systemPrompt = `You are a marketing strategist for a Virtual Assistant. Take the provided credential and explain its value to a potential client in the form of three highly specific, compelling, and actionable benefits. Use persuasive language and focus on outcomes (efficiency, quality, ROI).
+Format your response as a level 3 markdown heading followed by an unordered list with exactly three items.`;
+
+      try {
+        const resultText = await fetchGeminiContent(userQuery, systemPrompt);
+        if (resultText) {
+          // Insert as HTML (simple markdown -> basic conversion for list headings)
+          modalContent.innerHTML = resultText
+            .replace(/^###\s*(.*)$/m, '<h3 class="text-lg font-semibold">$1</h3>')
+            .replace(/^\s*-\s*(.*)$/gm, '<li class="ml-4">\$1</li>')
+            .replace(/\n{2,}/g, '\n');
+        } else {
+          modalContent.innerHTML = '<p class="text-red-400">Could not generate a value proposition. Please try again later.</p>';
+        }
+      } catch (e) {
+        console.error(e);
+        modalContent.innerHTML = `<p class="text-red-400">Error: ${e.message}</p>`;
+      } finally {
+        if (buttonElem) {
+          buttonElem.disabled = false;
+          buttonElem.innerHTML = 'Understand My Value ✨';
+        }
+      }
+    }
+
+    /* =========================
+       DOM Ready bindings
+       ========================= */
+    document.addEventListener('DOMContentLoaded', () => {
+      const optBtn = document.getElementById('optimizeButton');
+      if (optBtn) optBtn.addEventListener('click', optimizeScope);
+
+      // Small enhancement: expand textarea to fit contents on page load (if any)
+      const msg = document.getElementById('message');
+      if (msg) {
+        msg.style.height = 'auto';
+        msg.style.height = msg.scrollHeight + 'px';
+      }
+      
+      // Add scroll animations for elements
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all content cards and metrics
+      document.querySelectorAll('.content-card, .metric-highlight').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
